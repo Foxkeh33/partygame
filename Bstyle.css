@@ -1,0 +1,294 @@
+@charset "utf-8";
+#bingoBox{
+	text-align:center;
+}
+#BingoCard{
+	width:450px;
+	height:550px;
+	background-image:url("images/bingo/BingoCard4.png");
+	background-repeat:no-repeat;
+	//background-color:green;
+	padding-top:110px;
+	padding-left:89px;
+	float:left;
+}
+#BingoCardBtn{
+	position: absolute;
+	left:580px;
+	top:30px;
+	z-index: 510;
+}
+#BingoMachineBtn{
+	position: absolute;
+	top:-50px;
+	left:30px;
+	z-index: 520;
+	outline:none;
+}
+
+
+
+
+
+
+.Bsetumei1{
+	position:absolute;
+	top:310px;
+	left:140px;
+	width:1000px;
+	height:300px;
+	background-color: rgba(255,69,221,0.8);
+	font-size:30px;
+	font-family: "Arial",sans-serif; 
+	text-align:center;
+	line-height: 150％;
+}
+.Bsetumei2{
+	position:absolute;
+	top:310px;
+	left:140px;
+	width:1000px;
+	height:200px;
+	background-color: rgba(255,69,221,0.8);
+	font-size:40px;
+	font-family: "Arial",sans-serif; 
+	text-align:center;
+	line-height: normal;
+}
+
+#Bnokori{
+	position: absolute;
+	left:330px;
+	top:100px;
+	color:white;
+	font-size:30px;
+
+
+}
+table {
+	position:relative;
+	top:-25px;
+	left:0px;
+	border-collapse: collapse;
+	}
+	
+td {
+	border: solid 1px;
+	padding: 1em;
+	width:40px;
+	height:40px;
+	background-color:white;
+}
+
+#B13{
+	background-image:url("images/bingo/kuraun.jpg");
+	background-size:cover;
+	background-repeat:no-repeat;
+	}
+
+
+
+.colorR{
+	color:red;
+	border-color:black;
+	font-weight:500;
+	background-image:url("images/bingo/hana.jpg");
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+
+#Bingo-space{
+	//background-color:blue;
+	width:400px;
+	height:600px;
+	float:left;
+	position:relative;
+	top:-60px;
+	left:50px;
+}
+
+#Bingo-box{
+	width:400px;
+	height:272px;
+	position:relative;
+	top:50px;
+	left:0px;
+	//background-color:pink;
+	}
+#BingoBall{
+	width:100px;
+	height:100px;
+	position:absolute;
+	left:0px;
+	top:250px;
+	background-image:url(images/bingo/silver.jpg);
+	border-radius:50%;
+	font-weight:900;
+	text-align:center;
+	line-height:100px;
+	border:2px solid;
+	
+}
+
+#Bingo1{
+	position:absolute;
+	left:180px;
+	top:630px;
+	width:200px;
+	height:150px;
+	background-image:url("images/bingo/kuroneko1.png");
+	z-index:550;
+}
+.BnekoAnime{
+	-webkit-animation-duration:30s;
+	-webkit-animation-name:nekoMove;
+	-webkit-animation-timing-function:ease-in-out;
+	-webkit-animation-iteration-count:infinite;
+
+}
+@keyframes nekoMove{
+	0%{background-image:url("images/bingo/kuroneko1.png");}
+	5%{background-image:url("images/bingo/kuroneko3.png");}
+	10%{background-image:url("images/bingo/kuroneko1.png");}
+	15%{background-image:url("images/bingo/kuroneko4.png");}
+	20%{background-image:url("images/bingo/kuroneko1.png");}
+	25%{background-image:url("images/bingo/kuroneko5.png");}
+	30%{background-image:url("images/bingo/kuroneko6.png");}
+	35%{background-image:url("images/bingo/kuroneko5.png");}
+	40%{background-image:url("images/bingo/kuroneko6.png");}
+	45%{background-image:url("images/bingo/kuroneko1.png");}
+	60%{background-image:url("images/bingo/kuroneko7.png");}
+	65%{background-image:url("images/bingo/kuroneko8.png");}
+	70%{background-image:url("images/bingo/kuroneko9.png");}
+	80%{background-image:url("images/bingo/kuroneko8.png");}
+	85%{background-image:url("images/bingo/kuroneko7.png");}
+	90%{background-image:url("images/bingo/kuroneko1.png");}
+
+	100%{background-image:url("images/bingo/kuroneko1.png");}
+
+}
+
+#Bingo2{
+	position:relative;
+	left:0px;
+	top:-200px;
+	width:340px;
+	height:300px;
+	//background-color:green;
+}
+
+.BingoAnime{
+	-webkit-animation-duration:1s;
+	-webkit-animation-name:bingoMove;
+	-webkit-animation-timing-function:ease-in-out;
+}
+@keyframes bingoMove{
+	0%{-webkit-transform:rotate(0deg);
+		-webkit-transform-origin:64% 10%;}
+	100%{-webkit-transform:rotate(10075deg);
+	-webkit-transform-origin:64% 10%;}
+
+
+}
+.Bhidden{
+	visibility:hidden;
+	}
+
+
+.BallMove{
+	-webkit-animation-duration:1s;
+	-webkit-animation-name:ball-move;
+	//-webkit-animation-timing-function:ease-in-out;
+}
+@keyframes ball-move{
+	0%{-webkit-transform:translate(70px,-220px) scale(0);}
+	19.9%{-webkit-transform:translate(70px,-220px) scale(0);}
+	20%{-webkit-transform:translate(70px,-220px) scale(0.3);
+			visibility:visible;}
+	30%{-webkit-transform:translate(0px,-500px) scale(0.3);
+			visibility:visible;}
+	40%{-webkit-transform:translate(-100px,-200px) scale(0.3);
+			visibility:visible;}
+	50%{-webkit-transform:translate(0px,-400px) scale(0.3);
+			visibility:visible;}
+	60%{-webkit-transform:translate(100px,-150px) scale(0.3);
+			visibility:visible;}
+	70%{-webkit-transform:translate(200px,-300px) scale(0.3);
+			visibility:visible;}
+	80%{-webkit-transform:translate(200px,0px) scale(0.3);
+			visibility:visible;}
+	100%{-webkit-transform:translate(0px,0px) scale(1.0);
+			visibility:visible;}
+
+
+}
+
+#BingoStar{
+	width:100px;
+	height:100px;
+	position:relative;
+	left:300px;
+	top:-460px;
+	//background-color:orange;
+}
+
+#BreachCounter{
+	width:200px;
+	height:100px;
+	position:relative;
+	left:200px;
+	top:0px;
+}
+#BreachCounter img{
+	position:absolute;
+	left:-200px;
+	bottom: -225px;
+}
+#hukidasi{
+	width:300px;
+	height:175px;
+	font-size:20px;
+	line-height:30px;
+	position:absolute;
+	bottom:-220px;
+	left:-500px;
+	background-image:url("images/bingo/hukidasi.png");
+	background-size:cover;
+	z-index: 570;
+
+}
+.errer{
+	position:relative;
+	top:-22px;
+	left:0px;
+	
+}
+.ok{
+	position:relative;
+	top:-23px;
+	left:0px;
+
+}
+.background1{
+	background-image:url("images/bingo/kumo.jpg");
+}
+
+#BopenBtn{
+	width:180px;
+	height:150px;
+	color:red;
+	position:relative;
+	top:450px;
+	left:200px;
+	-webkit-animation-duration:20s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-name:tubaki-move;
+	z-index: 580;
+	outline:none;
+}
+@keyframes tubaki-move{
+	0%{-webkit-transform:translate(0px,0px);}
+	25%{-webkit-transform:translate(-400px,50px);}
+	50%{-webkit-transform:translate(-800px,0px);}
+	75%{-webkit-transform:translate(-400px,50px);}
+}

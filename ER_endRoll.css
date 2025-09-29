@@ -1,0 +1,94 @@
+@charset "utf-8";
+/*Mstyle.cssのページ設定用CSS---------------------------------------------------------------------*/
+html,body{
+	width: 1280px;
+	height: 920px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+p{
+	margin: 0;
+}
+button{
+	display: block;
+}
+
+/*各ページのサイズ*/
+.Mpage{
+	width: 1280px;
+	height: 920px;
+	//opacity: 0;
+	//opacity: 1;
+	margin: 0;
+}
+/*Mstyle.cssのページ設定用CSSここまで--------------------------------------------------------------*/
+/*ここからエンドロール用CSS---------------------------------------------------------------------------*/
+/*全体*/
+#ER_endRoll{
+	background-color: #000000;
+	color: #ffffff;
+}
+/*動かす用のdiv*/
+#ER_move{
+	padding-top: 900px;
+	width: 1280px;
+	height: 5600px;
+	background-color: #000000;
+	background-image: url(images/endroll/ER_bg.png);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+/*各自のdiv*/
+.ER_member{
+	width: 1100px;
+	height: 700px;
+	//background-color: orange;
+	margin-left: 100px; 
+	clear: both;
+}
+/*写真エリア*/
+.ER_photo{
+	width: 500px;
+	height: 700px;
+	position: relative;
+	//background-color: blue;
+	float: left;
+}
+/*写真*/
+.ER_images1{
+	width: 450px;
+	height: 315px;
+	position: absolute;
+	top: 192.5px;
+	left: 25px;
+}
+/*マスキングテープ*/
+.ER_tape1{
+	position: absolute;
+	top: 192.5px;
+	left: 0px;
+	transform: rotate(-20deg);
+}
+.ER_tape2{
+	position: absolute;
+	top: 470px;
+	left: 390px;
+	transform: rotate(-20deg);
+}
+/*テキストエリア*/
+.ER_text{
+	width: 600px;
+	height: 700px;
+	//background-color: green;
+	float: left;
+	padding-top: 230px;
+	text-align: center;
+}
+.name{
+	font: 70px serif;
+}
+.work{
+	font: 24px serif;
+}

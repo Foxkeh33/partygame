@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<title>Party Game</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="Mstyle.css">
+	<link rel="stylesheet" href="S_setumei.css"><!--チュートリアル-->
+	<link rel="stylesheet" href="Kstyle.css"><!--くろひげ-->
+	<link rel="stylesheet" href="D_style.css"><!--ダーツ-->
+	<link rel="stylesheet" href="Bstyle.css"><!--ビンゴ-->
+	<link rel="stylesheet" href="Kokuhakumae.css"><!---告白前ページ-->
+	<link rel="stylesheet" href="E_end.css"><!---エンディング背景アニメーション--->
+	<link rel="stylesheet" href="After.css"><!---later date--->
+	<link rel="stylesheet" href="ER_endRoll.css"><!--エンドロール-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			//獲得得点代入グローバル変数
+			var resultBingo="";
+			var resultDarts="";
+			var resultKurohige="";
+			
+			//選択した相手役のデータ取得のグローバル変数
+			var MparsonName="";
+		});
+	</script>
+	<script src="M.js"></script><!--メインアニメーション-->
+	<script src="Op.js"></script><!--オープニング・タイトルアニメーション-->
+	<script src="S_setumei.js"></script><!--チュートリアル-->
+	<script src="kurohige.js"></script><!--くろひげ-->
+	<script src="bingo.js"></script><!--ビンゴ-->
+	<script src="D_canvas.js"></script><!--ダーツ-->
+	<script src="Kokuhakumae.js"></script><!--告白前ページ-->
+	<script src="Mresult.js"></script><!--結果-->
+	<script src="MparsomData.js"></script><!--セリフ、画像-->
+</head>
+<body>
+	<!--BGM8/1追加-->
+		<audio id="BGM" src="BGM/bgm/title.3gp" autoplay loop></audio>
+		
+	<!--オープニングアニメーション-->
+	<div id="Mop" class="Mpage">
+		<audio id="sound-file19" preload="auto">					
+			<source src="BGM/OP/clinking1.mp3" type="audio/mp3">	
+		</audio>
+		<img src="images/opening/glassL.png" width="100" alt="" id="glassL">
+		<img src="images/opening/glassR.png" width="111" alt="" id="glassR">
+		
+	</div>
+	
+	<!--タイトルページ-->
+	<div id="Mtitle" class="Mpage">
+		<audio id="sound-file16" preload="auto">					
+			<source src="BGM/OP/kira2.mp3" type="audio/mp3">	
+		</audio>
+		<audio id="sound-file17" preload="auto">					
+			<source src="BGM/OP/start5.mp3" type="audio/mp3">	
+		</audio>
+		<audio id="sound-file18" preload="auto">					
+			<source src="BGM/OP/pi.mp3" type="audio/mp3">		
+		</audio>
+		<audio id="sound-file20" preload="auto">					
+			<source src="BGM/OP/door1.mp3" type="audio/mp3">
+		</audio>
+
+		<img id="T_tomomi" src="images/char/tomomi/tomomi.png">
+		<img id="T_syuuhei" src="images/char/syuhei/syuhei_big.png">
+		<img id="T_maika" src="images/char/maika/maika.png">
+		<img id="T_miki" src="images/char/miki/miki.png">
+		<img id="T_risa"  src="images/char/risa/risa_big.png">
+		<button type="button" id="btnTitle">
+			<img src="images/title/title-8.png"><br>
+			<p>Click To Start</p>
+		</button>
+	</div>
+	
+	<!--チュートリアル-->
+	<div id="Mtutorial" class="Mpage">
+		<div class="Stouka">
+			<div id="S_message"></div>
+			<input type="image" id="btnTutorial" src="images/setumei/hukidasi.png" class="S_hidden">  
+		</div>
+	</div>
+	
+	
+	
+	<!--相手役選択ページ-->
+	<div id="Mselect" class="Mpage">
+		<div id="Scontainer">
+			<div id="Sgallery">
+				<div class="gallery-cell"></div>
+			</div>
+		</div>
+		<div id="Mselect_hako">
+			<br>
+			<h1>相手役を選んでください</h1>
+			<input type="radio" name="Mselect" id="se1" value="risa"><label for="se1">りさ</label>
+			<input type="radio" name="Mselect" id="se2"  value="syuhei"><label for="se2">しゅうへい</label>
+			<input type="radio" name="Mselect" id="se3" value="tomomi"><label for="se3">ともみ</label>
+			<input type="radio" name="Mselect" id="se4" value="miki"><label for="se4">みき</label>
+			<input type="radio" name="Mselect" id="se5" value="maika"><label for="se5">まいか</label>
+		</div>
+		<input type="image" src="images/select/kurakka1.png" id="btnStart" disabled="disabled">
+	</div>
+	
+	<!--扉の前＿セリフ1-->
+	<div id="Mtobira" class="Mpage">
+		<div id="Mdoor">
+			<img id="MleftDoor" src="images/tobira/leftDoor.png">
+			<img id="MrightDoor" src="images/tobira/rightDoor.png">
+		</div>
+		<img class="MpartyParsonImage ParsonImageBox" alt="">
+		<div id="MparsonParty"></div>
+		<div class="serifBox">
+			<p class="MpartyParson"></p>
+			<p id="serif1"></p>
+			<p id="serif11"></p>
+		</div>
+	</div>
+	
+	<!--パーティー会場＿セリフ0-->
+	<div id="Mparty1" class="Mpage">
+		<img class="MpartyParsonImage ParsonImageBox" alt="">
+		<div id="MparsonParty"></div>
+		<div class="serifBox">
+			<p class="MpartyParson"></p>
+			<p id="serif00"></p>
+			<br>
+			<p id="serif0"></p>
+		</div>
+		<button id="btnParty1">GameStart</button>
+	</div>
+	
+	<!--ゲーム１＿黒ひげ-->
+	<div id="Mgame1" class="MgamePage Mpage">
+		<audio id="sound-file05" preload="auto">
+			<source src="BGM/Kbgm/sasu1.mp3" type="audio/mp3">
+		</audio>
+		<audio id="sound-file06" preload="auto">
+			<source src="BGM/Kbgm/up1.mp3" type="audio/mp3">
+		</audio>
+		<audio id="sound-file07" preload="auto">
+			<source src="BGM/Kbgm/pyu-nn.mp3" type="audio/mp3">
+		</audio>
+		<audio id="sound-file08" preload="auto">
+			<source src="BGM/Kbgm/boyoyon.mp3" type="audio/mp3">
+		</audio>
+		<audio id="sound-file09" preload="auto">
+			<source src="BGM/Kbgm/start.mp3" type="audio/mp3">
+		</audio>
+	<div class="gameBackWhite"></div>
+		<div class="GparsonBox">
+			<img class="MpartyParsonImageUp" width="150" alt="">
+		</div>
+		<div class="gameBox" id="kurohigeBox">
+			<p id="Ktokuten">0p</p>
+			<p id="Kmoji">-Back to the party venue!-</p>
+			<img src="images/kurohige/blue.png" id="Kblue">
+			<img src="images/kurohige/start.gif" id="Kstart">
+			<img src="images/kurohige/rule.png" id="Krule">
+			<img src="images/kurohige/taruana.png" id="Ktaru">
+			<img src="images/kurohige/hige3.gif" id="Khige">
+			<img src="images/kurohige/end.png" id="Kend">
+			<img src="images/kurohige/tori.gif" id="Ktori" width="280" height="180">
+			<div><img src="images/kurohige/point.png" id="Kpoint"></div>
+			
+			<button type="submit" id="Kana1"><img src="images/kurohige/ana1.png" /></button>
+			<button type="submit" id="Kana2"><img src="images/kurohige/ana1.png" /></button>
+			<button type="submit" id="Kana3"><img src="images/kurohige/ana1.png" /></button>
+			<button type="submit" id="Kana4"><img src="images/kurohige/ana1.png" /></button>
+			<button type="submit" id="Kana5"><img src="images/kurohige/ana1.png" /></button>
+			<button type="submit" id="Kana6"><img src="images/kurohige/ana1.png" /></button>
+			
+			<img src="images/kurohige/ken1.png" id="Kken1">
+			<img src="images/kurohige/ken2.png" id="Kken2">
+			<img src="images/kurohige/ken3.png" id="Kken3">
+			<img src="images/kurohige/ken4.png" id="Kken4">
+			<img src="images/kurohige/ken5.png" id="Kken5">
+			<img src="images/kurohige/ken6.png" id="Kken6">
+		</div>
+		<button id="btnGame1" class="Gbtn">Next &raquo;</button>
+	</div>
+	
+	<!--パーティー会場＿セリフ２-->
+	<div id="Mparty2" class="Mpage">
+		<img class="MpartyParsonImageS ParsonImageBox" alt="">
+		<div class="serifBox">
+			<p class="MpartyParson"></p>
+			<p class="serif2"></p>
+		</div>
+		<button id="btnParty2" class="Mbtn">Next Game</button>
+	</div>
+	
+	<!--ゲーム2＿ダーツ-->
+	<div id="Mgame2" class="MgamePage Mpage">
+		<audio id="sound-file10" preload="auto">				
+			<source src="BGM/Dbgm/bull.wav" type="audio/wav">
+		</audio>											
+		<audio id="sound-file11" preload="auto">				
+			<source src="BGM/Dbgm/tori.mp3" type="audio/mp3">
+		</audio>											
+		<audio id="sound-file12" preload="auto">				
+			<source src="BGM/Dbgm/dabu.mp3" type="audio/mp3">
+		</audio>
+		<audio id="sound-file13" preload="auto">				
+			<source src="BGM/Dbgm/futsu.mp3" type="audio/mp3">
+		</audio>											
+		<audio id="sound-file14" preload="auto">				
+			<source src="BGM/Dbgm/hazure.mp3" type="audio/mp3">
+		</audio>											
+		<audio id="sound-file15" preload="auto">					
+			<source src="BGM/Dbgm/stop.mp3" type="audio/mp3">	
+		</audio>
+		<div class="gameBackWhite"></div>
+		<div class="GparsonBox">
+			<img class="MpartyParsonImageUp" width="150" alt="">
+		</div>
+		<div class="gameBox" id="dartsBox">
+			<canvas id="D_canvas" width="1000" height="700"></canvas>
+			<img id="D_renga" src="images/darts/renga.jpg" style="display:none">
+			<img id="D_countArrows" src="images/darts/arrow1.png" style="display:none">
+			<img id="D_throwArrows" src="images/darts/arrow1.png" style="display:none">
+			<img id="D_angels" src="images/darts/angel1.png" style="display:none">
+		</div>
+		<button id="btnGame2" class="Gbtn">Next</button>
+	</div>
+	
+	<!--パーティー会場＿セリフ3-->
+	<div id="Mparty3" class="Mpage">
+		<img class="MpartyParsonImageS ParsonImageBox" alt="">
+		<div class="serifBox">
+			<p class="MpartyParson"></p>
+			<p class="serif2"></p>
+		</div>
+		<button id="btnParty3" class="Mbtn">Next Game</button>
+	</div>
+	
+	<!--ゲーム3＿ビンゴ-->
+			<div id="Mgame3" class="MgamePage Mpage">
+			<audio id="sound-file1" preload="auto">
+				<source src="BGM/Bbgm/switch1.mp3" type="audio/mp3">
+			</audio>
+			<audio id="sound-file2" preload="auto">
+				<source src="BGM/Bbgm/mawasu1.mp3" type="audio/mp3">
+			</audio>
+			<audio id="sound-file3" preload="auto">
+				<source src="BGM/Bbgm/boyoyon.mp3" type="audio/mp3">
+			</audio>
+			<audio id="sound-file4" preload="auto">
+				<source src="BGM/Bbgm/kira2.mp3" type="audio/mp3">
+			</audio>
+
+		
+		<div class="gameBackWhite"></div>
+		<div class="GparsonBox">
+			<img class="MpartyParsonImageUp" width="150" alt="">
+		</div>
+		<div class="gameBox background1" id="bingoBox">
+  			<input type="image" id="BopenBtn" src="images/bingo/2tubaki.png">
+			<button id="BingoCardBtn" class="Bhidden">カード作成</button>
+	  		<div id="BingoCard" class="Bhidden">
+			<table>
+			  <tr>
+			    <td id="B1" data-bingo="0"></td>
+			    <td id="B6" data-bingo="0"></td>
+			    <td id="B11" data-bingo="0"></td>
+			    <td id="B16" data-bingo="0"></td>
+			    <td id="B21" data-bingo="0"></td>
+			  </tr>
+			   <tr>
+			    <td id="B2" data-bingo="0"></td>
+			    <td id="B7" data-bingo="0"></td>
+			    <td id="B12" data-bingo="0"></td>
+			    <td id="B17" data-bingo="0"></td>
+			    <td id="B22" data-bingo="0"></td>
+			  </tr>
+			   <tr>
+			    <td id="B3" data-bingo="0"></td>
+			    <td id="B8" data-bingo="0"></td>
+			    <td id="B13" data-bingo="1"></td>
+			    <td id="B18" data-bingo="0"></td>
+			    <td id="B23" data-bingo="0"></td>
+			  </tr>
+			   <tr>
+			    <td id="B4" data-bingo="0"></td>
+			    <td id="B9" data-bingo="0"></td>
+			    <td id="B14" data-bingo="0"></td>
+			    <td id="B19" data-bingo="0"></td>
+			    <td id="B24" data-bingo="0"></td>
+			  </tr>
+			   <tr>
+			    <td id="B5" data-bingo="0"></td>
+			    <td id="B10" data-bingo="0"></td>
+			    <td id="B15" data-bingo="0"></td>
+			    <td id="B20" data-bingo="0"></td>
+			    <td id="B25" data-bingo="0"></td>
+			
+			  </tr>
+			
+			 </table>
+			 </div>
+			
+			  <div id="Bingo-space" class="Bhidden">
+				  <input type="image" src="images/bingo/bng.png" id="BingoMachineBtn" value="0">
+				  <div id="Bingo-box">
+				  <div id="Bingo2"></div>
+					  <span id="Bnokori">残り15球</span>
+				  </div>
+
+				  <div id="BingoBall" class="Bhidden"></div>
+				  
+				  <div id="BreachCounter">
+				  		<div id="errer">
+				  			<img src="images/bingo/gemaMastar.png">
+				  			<img src="images/bingo/gemaMastar3.png" class="errer Bhidden">
+				  			<img src="images/bingo/gemaMastar2.png" class="ok Bhidden">
+				  		</div>
+					    <div id="hukidasi">
+						    <br>
+						    <span>現在の得点</span><span id="BTS">0</span>
+						  	<br>
+						  	<span>ビンゴ数</span><span id="BBS">0</span>
+						  	</br>
+						  	<span>リーチ成功数</span><span id="BRS">0</span>
+					  	</div>
+				  </div>
+				  <div id="BingoStar">
+				  	<span id="BingoStar1" data-hoshi="0"></span>
+			  	  </div>
+			  </div>
+			</div>
+		<button id="btnGame3" class="Gbtn">Next</button>
+		<div id="Bsetumei" class="Bhidden Bsetumei1">
+			<h1></h1>
+			<p></p>
+		</div>
+		<div id="Bingo1" class="BnekoAnime"></div>
+	</div>
+	
+	<!--パーティー会場＿セリフ4-->
+	<div id="Mparty4" class="Mpage">
+		<img class="MpartyParsonImageS ParsonImageBox" alt="">
+		<div class="serifBox">
+			<p class="MpartyParson"></p>
+			<p class="serif2"></p>
+		</div>
+	</div>
+	
+	<!--告白前1-->
+	<div id="Mkokuhakumae1" class="Mpage">
+		<div id="Ktouka">
+			<div id="K_message"></div>
+		</div>
+	</div>
+	
+	<!--告白前2-->
+	<div id="Mkokuhakumae2">
+		<img class="MpartyParsonImage ParsonImageBox Mkm2" alt="">
+		<div id="Ktouka2">
+			<div id="K_message2" class="K_hidden"></div>
+		</div>
+		<div id="MkokuhakumaeBtn2" class="K_hidden">
+			<input type="radio" name="Mresult" id="do" value="do" checked><label class="doSelect" for="do">告白する </label>
+			<input type="radio" name="Mresult" id="donot" value="donot"><label class="doSelect" for="donot">告白しない</label>
+			<button id="btnResult">決定</button>
+		</div>
+	</div>
+	
+	<!--エンディングアニメーション-->
+	<div id="Mend" class="Mpage">
+		<img class="resultParsonImage ParsonImageBox" alt="">
+			<div id="resultOk">
+				<div id="E_endOK"></div>
+				<div id="hart"></div>
+				<p><span id="E_OKspan1">告</span><span id="E_OKspan2">白</span><span id="E_OKspan3">成</span><span id="E_OKspan4">功</span></p>
+				<div class="serifBox resultSerif">
+					<p class="MpartyParson"></p>
+					<p class="resultOne"></p>
+					<p class="resultTwo"></p>
+					<p class="resultThree"></p>
+					<p class="resultFour"></p>
+					<div id="hart"></div>
+				</div>
+			</div>
+			<div id="resultFriend">
+				<div class="serifBox resultSerif">
+					<p class="MpartyParson"></p>
+					<p class="resultOne"></p>
+					<p class="resultTwo"></p>
+					<p class="resultThree"></p>
+					<p class="resultFour"></p>
+				</div>
+			</div>
+			
+			<div id="resultNg">
+				<img id="E_end_left" src="images/ending/end_left.png">
+					<img id="E_end_right" src="images/ending/end_right.png">
+					<p><span id="E_NGspan1">告</span><span id="E_NGspan2">白</span><span id="E_NGspan3">失</span><span id="E_NGspan4">敗</span></p>
+				<div class="serifBox resultSerif">
+					<p class="MpartyParson"></p>
+					<p class="resultOne"></p>
+					<p class="resultTwo"></p>
+					<p class="resultThree"></p>
+					<p class="resultFour"></p>
+				</div>
+			</div>
+		<button id="Abtn0" class="MendSerifBtn">later<br>date</button>
+	</div>
+	
+	<!--告白結果後のラストセリフ-->
+	<div id="MAfter" class="Mpage MAfter">
+		<div id="A_message"></div>
+	</div>
+	
+	<!--エンドロール -->
+	<div id="ER_endRoll"  class="Mpage">
+		<div id="ER_move">
+			<div id="ER_risa" class="ER_member">
+				<div class="ER_photo">
+					<img id="ER_photo1" class="ER_images1" src="images/endroll/endroll1_sepia.png">
+					<img class="ER_tape1" src="images/endroll/tape_e1.png">
+					<img class="ER_tape2" src="images/endroll/tape_e1.png">
+				</div>
+				<div class="ER_text">
+					<p>
+						<span class="work">Planning(企画)</span><br>
+						<span class="work">Film Edito(編集)</span><br>
+						<span class="work">Director(監督)</span><br>
+						<br>
+						<span class="name">Risa Yamase</span><br>
+					</p>
+				</div>
+			</div>
+			
+			<div id="ER_maika" class="ER_member">
+				<div class="ER_photo">
+					<img id="ER_photo3" class="ER_images1" src="images/endroll/endroll3_sepia.png">
+					<img class="ER_tape1" src="images/endroll/tape_e1.png">
+					<img class="ER_tape2" src="images/endroll/tape_e1.png">
+				</div>
+				<div class="ER_text">
+					<p>
+						<span class="work">Music Producer (音楽統括プロデューサー)</span><br>
+						<span class="work">Character Design(キャラクターデザイン)</span><br>
+						<span class="work">Game:Kurohige(黒ひげ)</span><br>
+						<br>
+						<span class="name">Maika Nomura</span><br>
+					</p>
+				</div>
+			</div>
+			
+			<div id="ER_tomomi" class="ER_member">
+				<div class="ER_photo">
+					<img id="ER_photo4" class="ER_images1" src="images/endroll/endroll4_sepia.png">
+					<img class="ER_tape1" src="images/endroll/tape_e1.png">
+					<img class="ER_tape2" src="images/endroll/tape_e1.png">
+				</div>
+				<div class="ER_text">
+					<p>
+						<span class="work">Game Producer(ゲーム統括プロデューサー)</span><br>
+						<span class="work">Game:darts(ダーツ)</span><br>
+						<span class="work">EndRoll Movie(エンドロール)</span><br>
+						<br>
+						<span class="name">Tomomi Sato</span><br>
+					</p>
+				</div>
+			</div>
+			
+			<div id="ER_miki" class="ER_member">
+				<div class="ER_photo">
+					<img id="ER_photo5"  class="ER_images1" src="images/endroll/endroll5_sepia.png">
+					<img class="ER_tape1" src="images/endroll/tape_e1.png">
+					<img class="ER_tape2" src="images/endroll/tape_e1.png">
+				</div>
+				<div class="ER_text">
+					<p>
+						<span class="work">Screenplay(脚本)</span><br>
+						<span class="work">Game:Bingo(ビンゴ)</span><br>
+						<br>
+						<span class="name">Miki Kawae</span><br>
+					</p>
+				</div>
+			</div>
+			
+			<div id="ER_syuhei" class="ER_member">
+				<div class="ER_photo">
+					<img id="ER_photo2" class="ER_images1" src="images/endroll/endroll2_sepia.png">
+					<img class="ER_tape1" src="images/endroll/tape_e1.png">
+					<img class="ER_tape2" src="images/endroll/tape_e1.png">
+				</div>
+				<div class="ER_text">
+					<p>
+						<span class="work">SpecialThanks！</span><br>
+						<br>
+						<span class="name">Syuhei Nakada</span><br>
+					</p>
+				</div>
+			</div>
+			
+			<div id="ER_all" class="ER_member">
+				<div class="ER_photo">
+					<img id="ER_photo7" class="ER_images1" src="images/endroll/endroll7.png">
+					<img id="ER_photo6" class="ER_images1" src="images/endroll/endroll6_sepia.png">
+					<img class="ER_tape1" src="images/endroll/tape_e1.png">
+					<img class="ER_tape2" src="images/endroll/tape_e1.png">
+				</div>
+				<div class="ER_text">
+					<p>
+						<span class="work">Title</span><br>
+						<span class="name">Party Game</span><br>
+						<br>
+						<span class="work">Copyright©2017</span><br>
+						<span class="work">Produced by party people</span><br>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

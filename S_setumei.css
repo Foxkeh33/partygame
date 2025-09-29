@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+#Mtutorial{
+	background-image: url("images/setumei/test6.jpg");
+	background-repeat:no-repeat;
+	background-color:rgba(0,0,0,0.2);
+	background-size:1280px 920px; 
+}
+#Mtutorial p{
+	 margin: 20px 0;
+}
+.Stouka{
+	height:100%;
+	background:rgba(255,255,255,0.5);
+}
+
+#btnTutorial{
+	position:absolute;
+	top:600px;
+	left:300px;
+	outline:none;
+	z-index: 150;
+}
+
+.S_hidden{
+	visibility:hidden;
+
+}
+
+#S_message{
+	position:absolute;
+	top:240px;
+	left:230px;
+	line-height:1;
+	z-index: 150;
+}
+
+.S_anime{
+	animation-name:S_anime;
+	animation-duration:2s;
+	font-size:20px;
+	font-weight:900;
+}
+
+@keyframes S_anime{
+	0%{color:rgba(0,0,0,0.2);
+	opacity:0;
+	font-size:5px;
+	}
+	100%{color:rgba(0,0,0,1);
+	font-size:20px;
+	opacity:0.7;
+	}
+}

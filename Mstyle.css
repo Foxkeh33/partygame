@@ -1,0 +1,397 @@
+@charset "utf-8";
+
+html,body{
+	position: relative;
+	width: 1280px;
+	height: 920px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+p{
+	margin: 0;
+}
+button{
+	display: block;
+}
+
+/*各ページのサイズ*/
+.Mpage{
+	width: 1280px;
+	height: 920px;
+	opacity: 0;
+	margin: 0;
+	
+}
+
+/*オープニングアニメーション*/
+#Mop{
+	background: #ff3366;
+	background-image: url("images/opening/kira.gif");
+	opacity: 1;
+}
+#glassL{								
+	position: absolute;
+	top: 400px;
+	left: 450px;
+}
+#glassR{								
+	position: absolute;
+	top: 400px;
+	left: 650px;
+}
+
+
+/*タイトルページ*/
+#btnTitle{
+	position: absolute;
+	top: 500px;
+	left: 300px;
+	background:none;
+	border:0;
+	outline: none;
+	display: none;
+	z-index: 100;
+}
+#Mtitle{
+	background-image: url(images/title/bg_title3.jpg);
+	background-size: cover;
+}
+#btnTitle img{
+	width: 700px;
+}
+#btnTitle p{
+	font: 900 50px serif;
+	color: #000000;
+	background: -moz-linear-gradient(left, #ffffff, rgba(255,0,0,0));
+	background: -webkit-gradient(linear, left top, right top, from(rgba(255,0,0,0)),color-stop(0.5, rgba(255,255,255,1)), to(rgba(255,0,0,0)));
+}
+
+#T_risa{
+	position: absolute;
+	top:40px;
+	left: 1300px;	
+}
+#T_syuuhei{
+	position: absolute;
+	top:20px;
+	left: -700px;
+}
+#T_miki{
+	position: absolute;
+	top:130px;
+	left: -700px;
+}
+#T_maika{
+	position: absolute;
+	top:100px;
+	left: 1300px;
+}
+#T_tomomi{
+	position: absolute;
+	top:70px;
+	left: 1300px;
+}
+
+
+/*相手選択ページ*/
+#Mselect{
+	text-align: center;
+	background: url(images/select/spot.jpg);//#ff6699
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+
+#Mselect_hako input{
+	display:none;
+}
+
+
+#Mselect h1{
+	margin: 0;
+	text-align:center;
+}
+#Mselect label{
+    display: block;
+    float: left;
+    cursor: pointer;
+    width: 120px;
+    margin: 0;
+    padding: 20px 10px;
+    border-right: 3px solid #abb2b7;
+    background: #E4F2F2;
+    color: #555e64;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1;
+    transition: .2s;
+    position:relative;
+    left:250px;
+   z-index: 200;
+}
+#Mselect label:first-of-type{
+    border-radius: 10px 0 0 10px;
+
+}
+#Mselect label:last-of-type{
+    border-right: 0px;
+    border-radius: 0 10px 10px 0;
+}
+#Mselect #se1:checked + label {
+    background-color: red;
+    color: #fff;
+}
+#Mselect #se2:checked + label {
+    background-color:#2B2123;
+    color: #fff;
+}
+#Mselect #se3:checked + label {
+    background-color:#FFA722;
+    color: #fff;
+}
+#Mselect #se4:checked + label {
+    background-color:#22FFC1;
+    color: #fff;
+}
+#Mselect #se5:checked + label {
+    background-color:#FFAEF2;
+    color: #fff;
+}
+
+#btnStart{
+	position: absolute;
+	top: 50px;
+	left: 1000px;
+	outline:none;
+	z-index: 200;
+}
+#Scontainer{
+	position:absolute;
+	left:270px;
+	top:200px;
+	width:800px;
+	height:550px;
+	overflow:hidden;
+}
+#Sgallery{
+	position:absolute;
+	left:0px;
+	width:4000px;
+	height:550px;
+	white-space:nowrap;
+	border:solid 1px black;
+}
+/*扉*/
+#Mtobira{
+	background-image: url(images/tobira/bg_title1.jpg);
+	background-size: cover;
+}
+#Mtobira #Mdoor{
+	background-image: url(images/tobira/openDoor.png);
+	background-size: cover;
+	width: 1280px;
+	height: 920px;
+	margin: 0;
+}
+#Mtobira #MleftDoor{
+	position: absolute;
+	top: 155px;
+	left: 390px;
+	width:480px;
+	transform-origin: left 50%;
+}
+#Mtobira #MrightDoor{
+	position: absolute;
+	top: 155px;
+	left: 390px;
+	width:480px;
+	transform-origin: right 50%;
+}
+.MdoorOpen1{
+	animation-name: MdoorOpen1;
+	animation-delay: 7s;
+	animation-duration: 4s;
+	animation-timing-function: ease;
+}
+.MdoorOpen2{
+	animation-name: MdoorOpen2;
+	animation-delay: 6s;
+	animation-duration: 6s;
+	animation-timing-function: ease;
+}
+@keyframes MdoorOpen1 {
+	0%{
+	transform: scale(1,1);
+	}
+	100%{
+	transform: scale(2.2,2.2);
+	}
+}
+@keyframes MdoorOpen2 {
+	0%{
+	transform: rotateY(0deg);
+	}
+	100%{
+	transform: rotateY(75deg);
+	}
+}
+
+
+/*パーティーページ*/
+#Mparty1,#Mparty2,#Mparty3,#Mparty4{
+	background: url(images/party.jpg);
+}
+#MparsonParty{
+	width: 300px;
+}
+#btnParty1{
+	display: none;
+	position: absolute;
+	top: 800px;
+	left: 1050px;
+	font-size: 25px;
+	font-weight: bold;
+	border: none;
+	height: 80px;
+	width: 150px;
+	background: #FF5192;
+	color: #fff;
+	border-bottom: 2px solid #999;
+	border-radius: 5px;
+	z-index: 300;
+}
+.ParsonImageBox{
+	position: absolute;
+	top: 70px;
+	left: 300px;
+}
+
+/*パーティー会場2～4セリフ画面のボタン*/
+.Mbtn{
+	font-size: 20px;
+	font-weight: bold;
+	border: none;
+	height: 80px;
+	width: 100px;
+	background: #FF5192;
+	color: #fff;
+	border-bottom: 2px solid #999;
+	border-radius: 5px;
+	display: none;
+}
+/*セリフbox*/
+.serifBox{
+	width:700px;
+	height:110px;
+	background: rgba(0,0,0,0.7);
+	position: absolute;
+	left: 250px;
+	top: 690px;
+	padding: 30px;
+	color: #fff;
+	border-radius: 5px;
+}
+.serifBox .MpartyParson{
+	font-size: 20px;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+
+/*ゲームページ*/
+.MgamePage{
+	background: url(images/party.jpg);
+}
+
+/*ゲーム背景の透過*/
+.gameBackWhite{
+	width: 1280px;
+	height: 920px;
+	background: rgba(255,255,255,0.5);
+}
+.GparsonBox{
+	position: absolute;
+	top: 0px;
+	text-align: center;
+}
+.gameBox{
+	width: 1000px;
+	height: 700px;
+	background: #fff;
+	position: absolute;
+	top: 110px;
+	left: 140px;
+}
+
+/*ゲーム１*/
+.Gbtn{
+	font-size: 20px;
+	font-weight: bold;
+	border: none;
+	height: 40px;
+	width: 100px;
+	background: #fff;
+	color: #555;
+	border: 2px solid #fff;
+	border-bottom: 2px solid #999;
+	border-radius: 5px;
+	display: none;
+}
+#btnGame1{
+	position: absolute;
+	top: 440px;
+	left: 1020px;
+	z-index: 400;
+}
+/*パーティー会場＿セリフ２*/
+#btnParty2{
+	position: absolute;
+	top: 800px;
+	left: 1050px;
+	z-index: 500;
+}
+/*ゲーム2*/
+#btnGame2{
+	position: absolute;
+	top: 440px;
+	left: 1020px;
+	z-index: 600;
+}
+/*パーティー会場＿セリフ3*/
+#btnParty3{
+	position: absolute;
+	top: 800px;
+	left: 1050px;
+	z-index: 700;
+}
+/*ゲーム3*/
+#btnGame3{
+	position: absolute;
+	top: 550px;
+	left: 1020px;
+	z-index: 800;
+}
+
+
+/*告白選択ページ*/
+#MkokuhakumaeBtn2{
+	position: absolute;
+	left: 500px;
+	top: 820px;
+	z-index: 900;
+}
+
+/*告白ページ*/
+
+.resultParsonImage{
+	z-index: 999;
+}
+.resultSerif{
+	z-index: 1000;
+}
+
+/*結果ページ*/
+#resultOk,#resultFriend,#resultNg{
+	display: none;
+}
+

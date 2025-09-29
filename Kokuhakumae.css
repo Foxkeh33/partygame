@@ -1,0 +1,140 @@
+@charset "utf-8";
+
+
+#Mkokuhakumae1{
+	background-image: url("images/kokuhakumae/party.jpg");
+}
+#Mkokuhakumae1 p,#Mkokuhakumae2 p{
+	 margin: 15px 0;
+}
+#Ktouka{
+	width:1280px;
+	height:920px;
+
+}
+.Ktouka{
+	height:100%;
+	animation-name:Ktouka;
+	animation-duration:10s;
+	animation-delay:3S;
+	font-size:20px;
+	font-weight:900;
+}
+
+@keyframes Ktouka{
+	0%{background:rgba(0,0,0,0);}
+	100%{background:rgba(0,0,0,0.6);}
+}
+
+.Ktouka2{
+	background:rgba(0,0,0,0.6);
+
+}
+
+.K_hidden{
+	visibility:hidden;
+	display:none;
+
+}
+
+#K_message{
+	width:600px;
+	height:110px;
+	position:absolute;
+	left: 320px;
+	top:650px;
+	padding: 30px;
+	background:rgba(255,255,255,0.8);
+	border-radius: 5px;
+	color:black;
+
+}
+
+#K_message2{
+	width:600px;
+	height:110px;
+	position:absolute;
+	left: 320px;
+	top:650px;
+	padding: 30px;
+	background:rgba(255,255,255,0.6);
+	border-radius: 5px;
+
+}
+.doSelect{
+	display: block;
+	width: 150px;
+	height: 30px;
+	float:left;
+	margin: 5px;
+	background: #000;
+	border: 2px solid #fff;
+	color: #fff;
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+	padding-top:5px;
+}
+#MkokuhakumaeBtn2 input{
+	display: none;
+}
+#btnResult{
+	clear:left;
+	background: #fff;
+	color: #fff;
+	border-bottom: 2px solid #999;
+	border-radius: 5px;
+	height: 40px;
+	padding: 5px 10px;
+	border: none;
+	color: #555;
+	margin: 0 auto;
+	font-weight: bold;
+	font-size: 20px;
+}
+.doSelect:hover {
+	background: #FF5192; 
+	opacity:0.8;
+	border-color: rgba(255,255,255,0);
+}
+#do:checked + label{
+	background: #FF5192;
+	border-color:#FF5192;
+}
+#donot:checked +label{
+	background: #FF5192;
+	border-color:#FF5192;
+}
+
+
+
+
+
+
+.K_anime{
+	animation-name:K_anime;
+	animation-duration:2s;
+	font-size:20px;
+	font-weight:900;
+	line-height:0.8;
+}
+
+@keyframes K_anime{
+	0%{color:rgba(0,0,0,0.2);
+	font-size:10px;
+	}
+	100%{color:rgba(0,0,0,1);
+	font-size:20px;
+	}
+}
+
+#Mkokuhakumae2{
+	width:1280px;
+	height:920px;
+	background-image: url("images/kokuhakumae/end.jpg");
+	background-repeat:no-repeat;
+	background-size:cover; 
+}
+.Mkm2{
+	display: none;
+}

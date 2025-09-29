@@ -1,0 +1,7 @@
+#dartsBox{
+	border : solid 1px white;
+	z-index: 390;
+}
+#D_canvas{
+	border : solid 1px gray;
+}

@@ -1,0 +1,294 @@
+/*エンディングアニメーション*/
+/*OK-------------------*/
+/*背景設定*/
+#resultOk{
+	display: none;
+	width: 1280px;
+	height: 920px;
+	margin: 1;
+	background-image: url(images/ending/end.jpg);
+	background-size: cover;
+	}
+#E_endOK{
+	background-image: url(images/ending/end_OK.jpg);
+	background-size: cover;
+	width: 1280px;
+	height: 920px;
+}
+/*背景と文字のアニメーション*/
+.E_OK_bg{
+	animation-name: E_OK;
+	animation-duration:3s;
+	animation-delay: 5s;
+	animation-fill-mode: both;
+}
+@keyframes E_OK{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+/*文字設定*/
+#E_OKspan1, #E_OKspan2, #E_OKspan3, #E_OKspan4{
+	position: absolute;
+	top: 200px;
+	text-shadow: #FFA2C6 1px 1px 10px, #FFA2C6 -1px 1px 10px, #FFA2C6 1px -1px 10px, #FFA2C6 -1px -1px 10px;
+	font: bold 120px sans-serif;
+	color: white;
+	opacity: 0;
+}
+#E_OKspan1{
+	left: 100px;
+}
+#E_OKspan2{
+	left: 300px;
+}
+#E_OKspan3{
+	left: 850px;
+}
+#E_OKspan4{
+	left: 1050px;
+}
+.E_OK1{
+	animation-name: E_OK;
+	animation-duration:3s;
+	animation-delay: 6s;
+	animation-fill-mode: both;
+}
+.E_OK2{
+	animation-name: E_OK;
+	animation-duration:3s;
+	animation-delay: 7s;
+	animation-fill-mode: both;
+}
+.E_OK3{
+	animation-name: E_OK;
+	animation-duration:3s;
+	animation-delay: 8s;
+	animation-fill-mode: both;
+}
+.E_OK4{
+	animation-name: E_OK;
+	animation-duration:3s;
+	animation-delay: 9s;
+	animation-fill-mode: both;
+}
+
+/*friend-------------------*/	
+#resultFriend{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1280px;
+	height: 920px;
+	margin: 0;
+	background-image: url(images/ending/end.jpg);
+	background-size: cover;
+}
+/*NG-------------------*/
+#resultNg{
+	display:none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1280px;
+	height: 920px;
+	margin: 0;
+	background-image: url(images/ending/end_bad.jpg);
+	background-size: cover;
+}
+/*告白失敗の文字の設定とアニメーション*/
+#E_NGspan1, #E_NGspan2, #E_NGspan3, #E_NGspan4{
+	position: absolute;
+	top: -200px;
+	text-shadow: #003F76 1px 1px 10px, #003F76 -1px 1px 10px, #003F76 1px -1px 10px, #003F76 -1px -1px 10px;
+	font: bold 120px sans-serif;
+	color: white;
+}
+.E_NG1{
+	left: 100px;
+	animation-name: E_NG1;
+	animation-duration:3s;
+	animation-delay: 5s;
+	animation-fill-mode: both;
+}
+.E_NG2{
+	left: 300px;
+	animation-name: E_NG2;
+	animation-duration:3s;
+	animation-delay: 6s;
+	animation-fill-mode: both;
+}
+.E_NG3{
+	left: 850px;
+	animation-name: E_NG3;
+	animation-duration:3s;
+	animation-delay: 7s;
+	animation-fill-mode: both;
+}
+.E_NG4{
+	left: 1050px;
+	animation-name: E_NG4;
+	animation-duration:3s;
+	animation-delay: 8s;
+	animation-fill-mode: both;
+}
+@keyframes E_NG1{
+	0%{
+		transform: translateY(0px) rotate(-5deg);
+	}
+	10%{
+		transform: translateY(400px) rotate(-5deg);
+	}
+	30%{
+		transform: translateY(370px) rotate(-5deg);
+	}
+	50%{
+		transform: translateY(400px) rotate(-5deg);
+	}
+	100%{
+		transform: translateY(400px) rotate(-5deg);
+	}
+}
+@keyframes E_NG2{
+	0%{
+		transform: translateY(0px) rotate(3deg);
+	}
+	10%{
+		transform: translateY(400px) rotate(3deg);
+	}
+	30%{
+		transform: translateY(370px) rotate(3deg);
+	}
+	50%{
+		transform: translateY(400px) rotate(3deg);
+	}
+	100%{
+		transform: translateY(400px) rotate(3deg);
+	}
+}
+@keyframes E_NG3{
+	0%{
+		transform: translateY(0px) rotate(-3deg);
+	}
+	10%{
+		transform: translateY(400px) rotate(-3deg);
+	}
+	30%{
+		transform: translateY(370px) rotate(-3deg);
+	}
+	50%{
+		transform: translateY(400px) rotate(-3deg);
+	}
+	100%{
+		transform: translateY(400px) rotate(-3deg);
+	}
+}
+@keyframes E_NG4{
+	0%{
+		transform: translateY(0px) rotate(5deg);
+	}
+	10%{
+		transform: translateY(400px) rotate(5deg);
+	}
+	30%{
+		transform: translateY(370px) rotate(5deg);
+	}
+	50%{
+		transform: translateY(400px) rotate(5deg);
+	}
+	100%{
+		transform: translateY(400px) rotate(5deg);
+	}
+}
+/*割れる背景の指定とアニメーション*/
+#E_end_left,#E_end_right{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 1280px;
+	height: 920px;
+}
+.E_broken_left{
+	animation-name: E_broken_left;
+	animation-duration:3s;
+	animation-delay: 3s;
+	animation-fill-mode: both;
+}
+.E_broken_right{
+	animation-name: E_broken_right;
+	animation-duration:3s;
+	animation-delay: 3s;
+	animation-fill-mode: both;
+}
+@keyframes E_broken_left{
+	0%{
+		transform: translate(0px, 0px) rotate(0deg);
+		opacity: 1;
+	}
+	5%{
+		transform: translate(0px, 0px) rotate(-1deg);
+		opacity: 1;
+	}
+	10%{
+		transform: translate(0px, 0px) rotate(0deg);
+		opacity: 1;
+	}
+	15%{
+		transform: translate(0px, 0px) rotate(-1deg);
+		opacity: 1;
+	}
+	20%{
+		transform: translate(0px, 0px) rotate(0deg);
+		opacity: 1;
+	}
+	30%{
+		transform: translate(-30px, 0px) rotate(-1deg);
+		opacity: 1;
+	}
+	40%{
+		transform: translate(-30px, 0px) rotate(-1deg);
+		opacity: 1;
+	}
+	100%{
+		transform: translate(-50px, 950px) rotate(-10deg);
+		opacity: 0;
+	}
+}
+@keyframes E_broken_right{
+	0%{
+		transform: translate(0px, 0px) rotate(0deg);
+		opacity: 1;
+	}
+	5%{
+		transform: translate(0px, 0px) rotate(1deg);
+		opacity: 1;
+	}
+	10%{
+		transform: translate(0px, 0px) rotate(0deg);
+		opacity: 1;
+	}
+	15%{
+		transform: translate(0px, 0px) rotate(1deg);
+		opacity: 1;
+	}
+	20%{
+		transform: translate(0px, 0px) rotate(0deg);
+		opacity: 1;
+	}
+	30%{
+		transform: translate(30px, 0px) rotate(1deg);
+		opacity: 1;
+	}
+	40%{
+		transform: translate(30px, 0px) rotate(1deg);
+		opacity: 1;
+	}
+	100%{
+		transform: translate(50px, 950px) rotate(10deg);
+		opacity: 0;
+	}
+}
