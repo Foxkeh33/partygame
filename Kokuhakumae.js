@@ -57,7 +57,7 @@ $(function(){
 					$("#K_message").append('<p class="K_anime">'+kokuhakumae5+'</p>');
 					$("#Mkokuhakumae1").fadeOut(2000);
 					$("#Mkokuhakumae2")
-							.fadeOut(0000)
+							.fadeOut(0o0)
 							.fadeIn(2000);
 					$("#K_message2").removeClass("K_hidden");
 					setTimeout(Ksix,3000);
